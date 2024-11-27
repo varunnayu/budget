@@ -17,6 +17,7 @@ const filteredTransactionsList = document.getElementById('filtered-transactions-
 let chartInstance = null;
 
 let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+let deletedTransactions = JSON.parse(localStorage.getItem('deletedTransactions')) || []; // Store deleted transactions
 
 // Update the UI
 function updateUI() {
@@ -34,7 +35,7 @@ function updateUI() {
     expenseElement.textContent = expense;
     balanceElement.textContent = balance;
 
-    // Render transactions
+    // Render active transactions
     transactions.forEach(transaction => {
         const li = document.createElement('li');
         li.classList.add(transaction.type);
@@ -48,6 +49,7 @@ function updateUI() {
 
     // Save to localStorage
     localStorage.setItem('transactions', JSON.stringify(transactions));
+    localStorage.setItem('deletedTransactions', JSON.stringify(deletedTransactions));
 
     // Update the chart
     updateChart(income, expense);
@@ -83,10 +85,14 @@ form.addEventListener('submit', e => {
     }
 });
 
-// Delete a transaction
+// Delete a transaction (move to deleted transactions array)
 function deleteTransaction(id) {
-    transactions = transactions.filter(t => t.id !== id);
-    updateUI();
+    const transactionIndex = transactions.findIndex(t => t.id === id);
+    if (transactionIndex !== -1) {
+        const deletedTransaction = transactions.splice(transactionIndex, 1)[0];
+        deletedTransactions.push(deletedTransaction); // Move to deleted transactions
+        updateUI();
+    }
 }
 
 // Edit a transaction
@@ -134,7 +140,10 @@ filterForm.addEventListener('submit', e => {
     const endDate = new Date(endDateInput.value);
 
     if (startDate && endDate) {
-        const filteredTransactions = transactions.filter(t => {
+        const filteredTransactions = [
+            ...transactions,         // Include active transactions
+            ...deletedTransactions   // Include deleted transactions
+        ].filter(t => {
             const transactionDate = new Date(t.date);
             return transactionDate >= startDate && transactionDate <= endDate;
         });
