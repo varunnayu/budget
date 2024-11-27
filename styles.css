@@ -1,0 +1,287 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+main {
+    padding: 1rem;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Form Section */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form input {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+form button {
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Summary Section */
+.summary {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.summary p {
+    margin: 0.5rem 0;
+}
+
+/* Transactions Section */
+#transactions-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+#transactions-list li {
+    background: #fff;
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-left: 5px solid;
+    border-radius: 3px;
+}
+
+#transactions-list .income {
+    border-color: green;
+}
+
+#transactions-list .expense {
+    border-color: red;
+}
+/* Add styles for edit and delete buttons */
+button.edit-btn,
+button.delete-btn {
+    margin-left: 10px;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button.edit-btn {
+    background-color: #ffc107;
+    color: white;
+}
+
+button.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+button.edit-btn:hover {
+    background-color: #e0a800;
+}
+
+button.delete-btn:hover {
+    background-color: #c82333;
+}
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    padding: 1rem;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Form Section */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form input, form select, form button {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Summary Section */
+.summary {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.summary p {
+    margin: 0.5rem 0;
+}
+
+/* Transactions Section */
+#transactions-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+#transactions-list li {
+    background: #fff;
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-left: 5px solid;
+    border-radius: 3px;
+}
+
+#transactions-list .income {
+    border-color: green;
+}
+
+#transactions-list .expense {
+    border-color: red;
+}
+/* Report Section */
+.report-section {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+#transaction-chart {
+    max-width: 100%;
+    height: 300px;
+    margin: auto;
+}
+/* Filter Section */
+.filter-section {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.filter-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-section button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+#filtered-transactions-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+#filtered-transactions-list li {
+    background: #fff;
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-left: 5px solid;
+    border-radius: 3px;
+}
+
+#filtered-transactions-list .income {
+    border-color: green;
+}
+
+#filtered-transactions-list .expense {
+    border-color: red;
+}
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .summary {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .summary p {
+        margin-bottom: 0.5rem;
+    }
+
+    .filter-section form {
+        flex-direction: column;
+    }
+
+    .filter-section input,
+    .filter-section button {
+        width: 95%;
+    }
+
+    #transactions-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .summary-section, .transactions-section, .filter-section, .report-section {
+        padding: 1rem;
+    }
+
+    .form-section {
+        padding: 1.5rem;
+    }
+
+    form input, form select, form button {
+        padding: 0.5rem;
+    }
+}

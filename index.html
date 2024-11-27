@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Budget Tracker</h1>
+    </header>
+
+    <main>
+        <!-- Form Section -->
+        <section class="form-section">
+            <h2>Add Transaction</h2>
+            <form id="transaction-form">
+                <input type="text" id="description" placeholder="Description" required />
+                <input type="number" id="amount" placeholder="Amount (e.g., 500)" required />
+                <select id="type" required>
+                    <option value="" disabled selected>Choose Type</option>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+                <input type="date" id="date" required />
+                <button type="submit">Add Transaction</button>
+            </form>
+        </section>
+
+        <!-- Summary Section -->
+        <section class="summary-section">
+            <h2>Summary</h2>
+            <div class="summary">
+                <p><strong>Income:</strong> ₹<span id="income">0</span></p>
+                <p><strong>Expense:</strong> ₹<span id="expense">0</span></p>
+                <p><strong>Balance:</strong> ₹<span id="balance">0</span></p>
+            </div>
+        </section>
+
+        <!-- Transactions Section -->
+        <section class="transactions-section">
+            <h2>Transaction History</h2>
+            <ul id="transactions-list"></ul>
+        </section>
+
+        <!-- Filter by Date Section -->
+        <section class="filter-section">
+            <h2>Filter Transactions by Date</h2>
+            <form id="filter-form">
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date" required />
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date" required />
+                <button type="submit">Filter</button>
+            </form>
+            <ul id="filtered-transactions-list"></ul>
+        </section>
+
+        <!-- Report Section -->
+        <section class="report-section">
+            <h2>Report</h2>
+            <canvas id="transaction-chart"></canvas>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
